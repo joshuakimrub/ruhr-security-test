@@ -1,5 +1,5 @@
 listener "tcp" {
-    purpose = "proxy"
+    purpose = "api"
     address = "0.0.0.0:9200"
     tls_disable = false
     tls_cert_file = "${CERT}"
