@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Service principal shall be created manually
 CLIENT_SECRET=$(az keyvault secret show --vault-name task-vault --name ClientSecret --query value -o tsv)
 CLIENT_ID='7186b5c0-9e6a-4637-89f0-2c67144ebe20'
 TENANT_ID='dc90e60f-fd1e-40a6-81c5-903cb3cc6a92'
