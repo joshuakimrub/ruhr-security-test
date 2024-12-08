@@ -1,0 +1,25 @@
+[ req ]
+efault_bits  = 4096
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[ req_distinguished_name ]
+countryName = DE
+stateOrProvinceName = North-Rhine-Westfalia
+localityName = Bochum
+organizationName = Self-signed certificate
+commonName = kimtask.germanywestcentral.cloudapp.azure.com
+
+[ v3_req ]
+subjectKeyIdentifier = hash
+basicConstraints = critical, CA:false
+nsCertType = server
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = kimtask.germanywestcentral.cloudapp.azure.com
+IP.1  = 127.0.0.1
+IP.2 = 9.141.17.171

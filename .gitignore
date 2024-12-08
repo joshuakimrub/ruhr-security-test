@@ -1,2 +1,5 @@
 ssg/
 ssg.zip
+*.crt
+*.key
+*.csr

@@ -11,3 +11,6 @@ IMAGE="hardened-ubuntu-2204-no-azure"
 ADMIN_NAME="azadmin"
 SHH_PUB_KEY="/home/kim/.ssh/id_ed25519.pub"
 LOCATION="germanywestcentral"
+
+CA_NAME="JK-CA"
+SERVER_NAME="VM"
