@@ -49,10 +49,6 @@ worker {
     controllers = ["127.0.0.1:9201"]
 }
 
-target {
-    name = "http-aplication"
-}
-
 kms "aead" {
     purpose = "root"
     aead_type = "aes-gcm"
