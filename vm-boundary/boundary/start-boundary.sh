@@ -20,12 +20,16 @@ docker run \
   -d \
   postgres
 
+# wait for container to init
+sleep 3
 # start boundary
 
 sed -i "s|\${CERT}|$CERT_PATH|g" boundary.hcl
 sed -i "s|\${KEY}|$KEY_PATH|g" boundary.hcl
 sed -i "s|\${POSTGRES_PASSWORD}|$POSTGRES_PASSWORD|g" boundary.hcl
 sed -i "s|\${AES_KEY}|$AES_KEY|g" boundary.hcl
+
+boundary database init -config boundary.hcl
 
 boundary server -config boundary.hcl
 
