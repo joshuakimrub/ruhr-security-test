@@ -38,7 +38,7 @@ listener "tcp" {
 controller {
     name = "boundary-controller"
     database {
-        url = "postgresql://boundary:${POSTGRES_PASSWORD}@localhost:5432/boundary"
+        url = "postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432/boundary"
     }
 }
 
