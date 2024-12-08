@@ -21,6 +21,18 @@ variable "subscription_id" {
   type = string
 }
 
+variable "resource_group" {
+  type = string
+}
+
+variable "image_name" {
+  type = string
+}
+
+variable "location" {
+  type = string
+}
+
 source "azure-arm" "generated_hardened_image" {
   azure_tags = {
     dept = "Engineering"
@@ -30,9 +42,9 @@ source "azure-arm" "generated_hardened_image" {
   client_secret       = "${var.client_secret}"
   tenant_id           = "${var.tenant_id}"
   subscription_id     = "${var.subscription_id}"
-  location            = "germanywestcentral"
-  managed_image_name  = "hardened-ubuntu-2204-no-azure"
-  managed_image_resource_group_name = "ruhr-security-task"
+  location            = "${var.location}"
+  managed_image_name  = "${var.image_name}"
+  managed_image_resource_group_name = "${var.resource_group}"
 
   # Base image details
   os_type            = "Linux"
