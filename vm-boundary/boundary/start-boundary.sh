@@ -15,9 +15,9 @@ docker run \
   --name boundaryPostgres \
   -v ./postgres-data:/var/lib/postgresql/data \
   -p 5432:5432 \
-  -e "POSTGRES_USERNAME=boundary" \
-  -e "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" \
-  -e "POSTGRES_DB=boundary" \
+  -e POSTGRES_USERNAME=boundary \
+  -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
+  -e POSTGRES_DB=boundary \
   -d \
   postgres:12
 
