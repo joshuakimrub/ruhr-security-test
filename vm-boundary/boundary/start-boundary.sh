@@ -9,32 +9,17 @@ CERT_PATH=${CERT_FOLDER}${SERVER_NAME}.crt
 KEY_PATH=${CERT_FOLDER}${SERVER_NAME}.key
 
 mkdir postgres-data
-# start postgres DB for boundary (reverse engineered command from boundary dev)
+# start postgres DB for boundary
 docker run \
   --rm \
   --name boundaryPostgres \
   -v ./postgres-data:/var/lib/postgresql/data \
-  --name "/exciting_margulis" \
-  --runtime "runc" \
-  --publish-all \
-  --log-driver "json-file" \
-  --restart "no" \
-  --publish "0.0.0.0:32772:5432/tcp" \
-  --network "bridge" \
-  --hostname "c7b08c864202" \
-  --expose "5432/tcp" \
-  --env "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" \
-  --env "POSTGRES_DB=boundary" \
-  --env "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/12/bin" \
-  --env "GOSU_VERSION=1.17" \
-  --env "LANG=en_US.utf8" \
-  --env "PG_MAJOR=12" \
-  --env "PG_VERSION=12.22-1.pgdg120+1" \
-  --env "PGDATA=/var/lib/postgresql/data" \
-  --detach \
-  --entrypoint "docker-entrypoint.sh" \
-  "postgres:12" \
-  "-c" "jit=off"
+  -p 5432:5432 \
+  -e "POSTGRES_USERNAME=boundary" \
+  -e "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" \
+  -e "POSTGRES_DB=boundary" \
+  -d \
+  postgres:12
 
 # start boundary
 
