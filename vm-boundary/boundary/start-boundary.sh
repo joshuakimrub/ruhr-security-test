@@ -11,7 +11,9 @@ KEY_PATH=${CERT_FOLDER}${SERVER_NAME}.key
 mkdir postgres-data
 # start postgres DB for boundary (reverse engineered command from boundary dev)
 docker run \
-  -v ./postgres-data:/var/lib/postgresql/data
+  --rm \
+  --name boundaryPostgres \
+  -v ./postgres-data:/var/lib/postgresql/data \
   --name "/exciting_margulis" \
   --runtime "runc" \
   --publish-all \
