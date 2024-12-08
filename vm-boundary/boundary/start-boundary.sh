@@ -8,20 +8,9 @@ POSTGRES_PASSWORD=$(az keyvault secret show --vault-name task-vault --name Bound
 CERT_PATH=${CERT_FOLDER}${SERVER_NAME}.crt
 KEY_PATH=${CERT_FOLDER}${SERVER_NAME}.key
 
-mkdir postgres-data
-# start postgres DB for boundary
-docker run \
-  --rm \
-  --name boundaryPostgres \
-  -v ./postgres-data:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
-  -e POSTGRES_DB="boundary" \
-  -d \
-  postgres
+# setup boundary to execute mlock without running as root
+sudo setcap cap_ipc_lock=+ep $(readlink -f $(which boundary))
 
-# wait for container to init
-sleep 3
 # start boundary
 
 sed -i "s|\${CERT}|$CERT_PATH|g" boundary.hcl
