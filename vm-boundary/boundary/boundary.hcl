@@ -17,6 +17,16 @@ listener "tcp" {
     }
 }
 
+# Listener for cluster communication (internal communication between controller and workers)
+listener "tcp" {
+    address = "0.0.0.0:9201"
+    purpose = "cluster"
+    tls_disable = false
+    tls_cert_file = "${CERT}"
+    tls_key_file = "${KEY}"
+    tls_min_version = "tls13"
+}
+
 controller {
     name = "boundary-controller"
     database {
