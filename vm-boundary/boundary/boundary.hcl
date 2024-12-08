@@ -44,7 +44,7 @@ controller {
 
 worker {
     name = "boundary-worker"
-    controllers = ["127.0.0.1:9200"]
+    controllers = ["127.0.0.1:9201"]
 }
 
 kms "aead" {
