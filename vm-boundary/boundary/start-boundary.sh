@@ -13,8 +13,7 @@ sed -i "s|\${KEY}|$KEY_PATH|g" boundary.hcl
 sed -i "s|\${POSTGRES_PASSWORD}|$POSTGRES_PASSWORD|g" boundary.hcl
 sed -i "s|\${AES_KEY}|$AES_KEY|g" boundary.hcl
 
-cat boundary.hcl
-#boundary server -config boundary.hcl
+boundary server -config boundary.hcl
 
 sed -i "s|$CERT_PATH|\${CERT}|g" boundary.hcl
 sed -i "s|$KEY_PATH|\${KEY}|g" boundary.hcl
