@@ -19,7 +19,7 @@ docker run \
   -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
   -e POSTGRES_DB="boundary" \
   -d \
-  postgres:12
+  postgres
 
 # start boundary
 
