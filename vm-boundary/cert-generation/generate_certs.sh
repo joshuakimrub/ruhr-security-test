@@ -16,5 +16,5 @@ openssl x509 -req -in $SERVER_NAME.csr -CA $CA_NAME.crt \
              -CAcreateserial -out $SERVER_NAME.crt -days 365 -sha256 \
              -extfile server.cnf -extensions v3_req
 
-sudo mkdir /etc/certs
-sudo mv $SERVER_NAME.crt $SERVER_NAME.key $CA_NAME.crt $CA_NAME.key /etc/certs
+sudo mkdir $CERT_FOLDER
+sudo mv $SERVER_NAME.crt $SERVER_NAME.key $CA_NAME.crt $CA_NAME.key $CERT_FOLDER
