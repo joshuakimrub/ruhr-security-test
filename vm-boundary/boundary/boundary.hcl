@@ -5,7 +5,7 @@ listener "tcp" {
     tls_key_file = "${CERT_FOLDER}/${SERVER_NAME}.key"
     tls_min_version = "tls13"
     custom_ui_response_headers = {
-        default" = {
+        "default" = {
             "Strict-Transport-Security" = ["max-age=31536000; includeSubDomains"],
             "Content-Security-Policy" = ["default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; frame-src 'self'; font-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; media-src 'self'; manifest-src 'self'; style-src-attr 'self'; frame-ancestors 'self'"]
         },
