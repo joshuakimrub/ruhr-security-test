@@ -1,8 +1,8 @@
 listener "tcp" {
     address = "0.0.0.0:9200"
     tls_disable = false
-    tls_cert_file = "${CERT_FOLDER}/${SERVER_NAME}.crt"
-    tls_key_file = "${CERT_FOLDER}/${SERVER_NAME}.key"
+    tls_cert_file = "${CERT}"
+    tls_key_file = "${KEY}"
     tls_min_version = "tls13"
     custom_ui_response_headers = {
         "default" = {
