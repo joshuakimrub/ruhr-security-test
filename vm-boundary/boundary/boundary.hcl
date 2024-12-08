@@ -18,7 +18,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9201"
+    address = "127.0.0.1:9201"
     purpose = "cluster"
     tls_disable = false
     tls_cert_file = "${CERT}"
@@ -27,7 +27,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9202"
+    address = "127.0.0.1:9202"
     purpose = "proxy"
     tls_disable = false
     tls_cert_file = "${CERT}"
