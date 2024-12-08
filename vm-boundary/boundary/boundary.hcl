@@ -1,3 +1,5 @@
+disable_mlock = true
+
 listener "tcp" {
     purpose = "api"
     address = "0.0.0.0:9200"
@@ -45,6 +47,10 @@ controller {
 worker {
     name = "boundary-worker"
     controllers = ["127.0.0.1:9201"]
+}
+
+target {
+    name = "http-aplication"
 }
 
 kms "aead" {
