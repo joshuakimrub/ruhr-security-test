@@ -29,7 +29,7 @@ worker {
 }
 
 kms "aead" {
-    purpose = "worker-auth"
+    purpose = "root"
     aead_type = "aes-gcm"
     key = "${AES_KEY}"
     key_id = "global_worker-auth"
