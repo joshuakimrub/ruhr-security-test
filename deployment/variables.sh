@@ -14,3 +14,4 @@ LOCATION="germanywestcentral"
 
 CA_NAME="JK-CA"
 SERVER_NAME="VM"
+CERT_FOLDER=/etc/certs/
