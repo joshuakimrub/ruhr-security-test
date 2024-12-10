@@ -17,7 +17,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9201"
+    address = "9.141.17.171:9201"
     purpose = "cluster"
     tls_disable = true
 }
@@ -37,7 +37,7 @@ controller {
 
 worker {
     name = "boundary-worker"
-    initial_upstreams  = ["127.0.0.1", "9.141.17.171"]
+    initial_upstreams  = ["9.141.17.171"]
 }
 
 events {
