@@ -3,7 +3,9 @@ disable_mlock = true
 listener "tcp" {
     purpose = "api"
     address = "0.0.0.0:9200"
-    tls_disable = true
+    tls_disable = false
+    tls_cert_file = "${CERT}"
+    tls_key_file = "${KEY}"
     custom_ui_response_headers = {
         "default" = {
             "Strict-Transport-Security" = ["max-age=31536000; includeSubDomains"],
@@ -19,13 +21,17 @@ listener "tcp" {
 listener "tcp" {
     address = "127.0.0.1:9201"
     purpose = "cluster"
-    tls_disable = true
+    tls_disable = false
+    tls_cert_file = "${CERT}"
+    tls_key_file = "${KEY}"
 }
 
 listener "tcp" {
     address = "0.0.0.0:9202"
     purpose = "proxy"
-    tls_disable = true
+    tls_disable = false
+    tls_cert_file = "${CERT}"
+    tls_key_file = "${KEY}"
 }
 
 controller {
