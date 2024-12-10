@@ -2,7 +2,7 @@ disable_mlock = true
 
 listener "tcp" {
     purpose = "api"
-    address = "0.0.0.0:9200"
+    address = "kimtask.germanywestcentral.cloudapp.azure.com:9200"
     tls_disable = true
     custom_ui_response_headers = {
         "default" = {
@@ -17,13 +17,13 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "127.0.0.1:9201"
+    address = "kimtask.germanywestcentral.cloudapp.azure.com:9201"
     purpose = "cluster"
     tls_disable = true
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9202"
+    address = "kimtask.germanywestcentral.cloudapp.azure.com:9202"
     purpose = "proxy"
     tls_disable = true
 }
