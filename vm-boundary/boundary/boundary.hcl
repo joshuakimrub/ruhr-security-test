@@ -18,7 +18,6 @@ listener "tcp" {
 
 listener "tcp" {
     address = "127.0.0.1:9201"
-    public_addr = "9.141.17.171"
     purpose = "cluster"
     tls_disable = true
 }
@@ -31,7 +30,6 @@ listener "tcp" {
 
 controller {
     name = "boundary-controller"
-    public_cluster_addr = "9.141.17.171"
     database {
         url = "postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432/boundary"
     }
