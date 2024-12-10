@@ -39,7 +39,6 @@ controller {
 worker {
     name = "boundary-worker"
     public_addr = "9.141.17.171"
-    initial_upstreams = ["127.0.0.1"]
 }
 
 events {
