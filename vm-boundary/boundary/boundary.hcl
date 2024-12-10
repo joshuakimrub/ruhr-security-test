@@ -23,7 +23,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "127.0.0.1:9202"
+    address = "0.0.0.0:9202"
     purpose = "proxy"
     tls_disable = true
 }
@@ -37,7 +37,6 @@ controller {
 
 worker {
     name = "boundary-worker"
-    public_addr = "9.141.17.171"
 }
 
 events {
