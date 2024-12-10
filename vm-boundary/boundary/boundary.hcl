@@ -37,6 +37,7 @@ controller {
 
 worker {
     name = "boundary-worker"
+    initial_upsteams = ["127.0.0.1", "9.141.17.171"]
 }
 
 events {
