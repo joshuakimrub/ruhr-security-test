@@ -17,7 +17,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = 10.0.0.4:9201"
+    address = "127.0.0.1:9201"
     purpose = "cluster"
     tls_disable = true
 }
