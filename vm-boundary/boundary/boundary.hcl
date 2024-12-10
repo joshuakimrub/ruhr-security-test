@@ -42,7 +42,6 @@ controller {
 worker {
     name = "boundary-worker"
     address = "0.0.0.0:9202"
-    public_addr = "kimtask.germanywestcentral.cloudapp.azure.com:9202"
 }
 
 events {
