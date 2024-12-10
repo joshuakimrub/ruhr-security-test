@@ -3,7 +3,7 @@ disable_mlock = true
 listener "tcp" {
     purpose = "api"
     address = "0.0.0.0:9200"
-    public_addr = "kimtask.germanywestcentral.cloudapp.azure.com:9200"
+    public_addr = "9.141.17.171"
     tls_disable = true
     custom_ui_response_headers = {
         "default" = {
@@ -19,21 +19,21 @@ listener "tcp" {
 
 listener "tcp" {
     address = "0.0.0.0:9201"
-    public_addr = "kimtask.germanywestcentral.cloudapp.azure.com:9201"
+    public_addr = "9.141.17.171"
     purpose = "cluster"
     tls_disable = true
 }
 
 listener "tcp" {
     address = "0.0.0.0:9202"
-    public_addr = "kimtask.germanywestcentral.cloudapp.azure.com:9202"
+    public_addr = "9.141.17.171:9202"
     purpose = "proxy"
     tls_disable = true
 }
 
 controller {
     name = "boundary-controller"
-    public_cluster_addr = "kimtask.germanywestcentral.cloudapp.azure.com:9201"
+    public_cluster_addr = "9.141.17.171"
     database {
         url = "postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432/boundary"
     }
@@ -41,7 +41,7 @@ controller {
 
 worker {
     name = "boundary-worker"
-    address = "0.0.0.0:9202"
+    address = "9.141.17.171:9202"
 }
 
 events {
