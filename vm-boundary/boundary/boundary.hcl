@@ -22,19 +22,11 @@ listener "tcp" {
 listener "tcp" {
     address = "127.0.0.1:9201"
     purpose = "cluster"
-    tls_disable = false
-    tls_cert_file = "${CERT}"
-    tls_key_file = "${KEY}"
-    tls_min_version = "tls13"
 }
 
 listener "tcp" {
     address = "127.0.0.1:9202"
     purpose = "proxy"
-    tls_disable = false
-    tls_cert_file = "${CERT}"
-    tls_key_file = "${KEY}"
-    tls_min_version = "tls13"
 }
 
 controller {
