@@ -30,6 +30,7 @@ listener "tcp" {
 
 controller {
     name = "boundary-controller"
+    public_cluster_addr = "127.0.0.1"
     database {
         url = "postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432/boundary"
     }
@@ -37,6 +38,8 @@ controller {
 
 worker {
     name = "boundary-worker"
+    public_addr = "9.141.17.171"
+    initial_upstreams = ["127.0.0.1"]
 }
 
 events {
