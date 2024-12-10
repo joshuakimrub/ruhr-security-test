@@ -22,11 +22,13 @@ listener "tcp" {
 listener "tcp" {
     address = "127.0.0.1:9201"
     purpose = "cluster"
+    tls_disable = true
 }
 
 listener "tcp" {
     address = "127.0.0.1:9202"
     purpose = "proxy"
+    tls_disable = true
 }
 
 controller {
