@@ -3,7 +3,6 @@ disable_mlock = true
 listener "tcp" {
     purpose = "api"
     address = "0.0.0.0:9200"
-    public_addr = "9.141.17.171"
     tls_disable = true
     custom_ui_response_headers = {
         "default" = {
@@ -18,7 +17,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9201"
+    address = "127.0.0.1:9201"
     public_addr = "9.141.17.171"
     purpose = "cluster"
     tls_disable = true
@@ -26,7 +25,6 @@ listener "tcp" {
 
 listener "tcp" {
     address = "0.0.0.0:9202"
-    public_addr = "9.141.17.171:9202"
     purpose = "proxy"
     tls_disable = true
 }
@@ -41,7 +39,6 @@ controller {
 
 worker {
     name = "boundary-worker"
-    address = "9.141.17.171:9202"
 }
 
 events {
