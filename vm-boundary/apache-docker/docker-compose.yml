@@ -4,9 +4,6 @@ services:
     container_name: apache-https
     depends_on:
       - reverse-proxy
-    hostname: localhost
-    ports:
-      - "127.0.0.1:8443:443"
     volumes:
       - ./html:/usr/local/apache2/htdocs
       - ./configs/apache-https.conf:/usr/local/apache2/conf/httpd.conf
