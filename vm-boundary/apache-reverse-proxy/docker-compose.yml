@@ -11,6 +11,8 @@ services:
       - /etc/certs:/usr/local/apache2/conf/certs
       - ./proxy-logs:/usr/local/apache2/logs
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
   internal:
