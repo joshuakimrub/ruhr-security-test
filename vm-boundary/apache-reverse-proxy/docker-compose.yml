@@ -2,7 +2,7 @@ services:
   # reverse proxy in front of boundary
   reverse-proxy:
     image: httpd:2.4
-    container_name: apache-reverse-proxy
+    container_name: apache-boundary-reverse-proxy
     hostname: localhost
     ports:
       - "443:443"
