@@ -1,0 +1,31 @@
+services:
+  https-server:
+    image: httpd:2.4
+    container_name: apache-https
+    depends_on:
+      - reverse-proxy
+    hostname: localhost
+    ports:
+      - "127.0.0.1:8443:443"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs
+      - ./configs/apache-https.conf:/usr/local/apache2/conf/httpd.conf
+      - /etc/certs:/usr/local/apache2/conf/certs
+      - ./service-logs:/usr/local/apache2/logs
+    restart: unless-stopped
+
+  reverse-proxy:
+    image: httpd:2.4
+    container_name: apache-reverse-proxy
+    hostname: localhost
+    ports:
+      - "127.0.0.1:9443:443"
+    volumes:
+      - ./configs/reverse-proxy.conf:/usr/local/apache2/conf/httpd.conf
+      - /etc/certs:/usr/local/apache2/conf/certs
+      - ./proxy-logs:/usr/local/apache2/logs
+    restart: unless-stopped
+
+networks:
+  internal:
+    driver: bridge
