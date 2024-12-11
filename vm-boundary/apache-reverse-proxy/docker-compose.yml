@@ -1,0 +1,14 @@
+services:
+  # reverse proxy in front of boundary
+  reverse-proxy:
+    image: httpd:2.4
+    container_name: apache-reverse-proxy
+    hostname: localhost
+    ports:
+      - "443:443"
+    volumes:
+      - ./configs/reverse-proxy.conf:/usr/local/apache2/conf/httpd.conf
+      - /etc/certs:/usr/local/apache2/conf/certs
+      - ./proxy-logs:/usr/local/apache2/logs
+    restart: unless-stopped
+    network_mode: host
