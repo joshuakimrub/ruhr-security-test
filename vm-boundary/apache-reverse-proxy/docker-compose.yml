@@ -11,3 +11,7 @@ services:
       - /etc/certs:/usr/local/apache2/conf/certs
       - ./proxy-logs:/usr/local/apache2/logs
     restart: unless-stopped
+
+networks:
+  internal:
+    driver: bridge
