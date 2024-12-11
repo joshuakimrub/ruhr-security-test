@@ -5,7 +5,7 @@ services:
     container_name: apache-boundary-reverse-proxy
     hostname: localhost
     ports:
-      - "443:443"
+      - 443:443
     volumes:
       - ./configs/reverse-proxy.conf:/usr/local/apache2/conf/httpd.conf
       - /etc/certs:/usr/local/apache2/conf/certs

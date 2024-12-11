@@ -16,7 +16,7 @@ services:
     container_name: apache-reverse-proxy
     hostname: localhost
     ports:
-      - "127.0.0.1:9443:443"
+      - 127.0.0.1:9443:443
     volumes:
       - ./configs/reverse-proxy.conf:/usr/local/apache2/conf/httpd.conf
       - /etc/certs:/usr/local/apache2/conf/certs
