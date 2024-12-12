@@ -2,7 +2,8 @@ disable_mlock = true
 
 listener "tcp" {
     purpose = "api"
-    address = "0.0.0.0:9200"
+    #address = "0.0.0.0:9200"
+    address = "127.0.0.1:9200"
     tls_disable = false
     tls_cert_file = "${CERT}"
     tls_key_file = "${KEY}"
@@ -27,7 +28,8 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "0.0.0.0:9202"
+    #address = "0.0.0.0:9202"
+    address = "127.0.0.1:9202"
     purpose = "proxy"
     tls_disable = false
     tls_cert_file = "${CERT}"
@@ -44,7 +46,8 @@ controller {
 
 worker {
     name = "boundary-worker"
-    public_addr = "9.141.17.171"
+    #public_addr = "9.141.17.171"
+    public_addr = "127.0.0.1"
 }
 
 events {
