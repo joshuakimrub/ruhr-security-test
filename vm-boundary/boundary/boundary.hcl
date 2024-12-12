@@ -28,7 +28,7 @@ listener "tcp" {
 }
 
 listener "tcp" {
-    address = "127.0.0.1:9202"
+    address = "0.0.0.0:9202"
     purpose = "proxy"
     tls_disable = false
     tls_cert_file = "${CERT}"
