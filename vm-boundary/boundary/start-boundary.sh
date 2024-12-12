@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "$1" == "--deploy" ]]; then
+  DEPLOY=true
+else
+  DEPLOY=false
+fi
+
 source ../../deployment/variables.sh
 
 AES_KEY=$(az keyvault secret show --vault-name task-vault --name KmsAesKey --query value -o tsv)
@@ -20,7 +26,12 @@ sed -i "s|\${AES_KEY}|$AES_KEY|g" boundary.hcl
 
 boundary database init -config boundary.hcl
 
-boundary server -config boundary.hcl
+if [ "$DEPLOY" = true ] ; then
+    sudo mv /etc/boundary.d/boundary.hcl /etc/boundary.d/boundary.hcl.old
+    sudo cp ./boundary.hcl /etc/boundary.d/boundary.hcl
+else
+    boundary server -config boundary.hcl
+fi
 
 sed -i "s|$CERT_PATH|\${CERT}|g" boundary.hcl
 sed -i "s|$KEY_PATH|\${KEY}|g" boundary.hcl
