@@ -27,8 +27,7 @@ sed -i "s|\${AES_KEY}|$AES_KEY|g" boundary.hcl
 boundary database init -config boundary.hcl
 
 if [ "$DEPLOY" = true ] ; then
-    sudo mv /etc/boundary.d/boundary.hcl /etc/boundary.d/boundary.hcl.old
-    sudo cp ./boundary.hcl /etc/boundary.d/boundary.hcl
+    sudo cp ./boundary.hcl /etc/boundary.hcl
 else
     boundary server -config boundary.hcl
 fi
