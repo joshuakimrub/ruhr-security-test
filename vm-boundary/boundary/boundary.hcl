@@ -46,6 +46,7 @@ controller {
 worker {
     name = "boundary-worker"
     #public_addr = "9.141.17.171"
+    public_addr = "127.0.0.1"
 }
 
 events {
