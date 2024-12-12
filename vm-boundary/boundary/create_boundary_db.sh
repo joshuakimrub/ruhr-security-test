@@ -7,7 +7,7 @@ mkdir postgres-data
 docker run \
   --name boundaryPostgres \
   -v ./postgres-data:/var/lib/postgresql/data \
-  -p 5432:5432 \
+  -p 127.0.0.1:5432:5432 \
   -e POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
   -e POSTGRES_DB="boundary" \
   -d \
