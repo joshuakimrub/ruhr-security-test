@@ -10,7 +10,7 @@ sudo cat << EOF > /etc/systemd/system/${NAME}-${TYPE}.service
 Description=${NAME} ${TYPE}
 
 [Service]
-ExecStart=/usr/local/bin/${NAME} server -config /etc/${NAME}.hcl
+ExecStart=/usr/bin/${NAME} server -config /etc/${NAME}.hcl
 User=boundary
 Group=boundary
 LimitMEMLOCK=infinity
@@ -25,13 +25,13 @@ EOF
 # user capable of owning and running Boundary
 sudo adduser --system --group boundary || true
 sudo chown boundary:boundary /etc/${NAME}.hcl
-sudo chown boundary:boundary /usr/local/bin/boundary
+sudo chown boundary:boundary /usr/bin/boundary
 
 # Make sure to initialize the DB before starting the service. This will result in
 # a database already initialized warning if another controller or worker has done this
 # already, making it a lazy, best effort initialization
 if [ "${TYPE}" = "controller" ]; then
-  sudo /usr/local/bin/boundary database init -config /etc/${NAME}.hcl || true
+  sudo /usr/bin/boundary database init -config /etc/${NAME}.hcl || true
 fi
 
 sudo chmod 664 /etc/systemd/system/${NAME}-${TYPE}.service
