@@ -12,8 +12,11 @@ services:
       - ./proxy-logs:/usr/local/apache2/logs
     restart: unless-stopped
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.docker.internal:172.20.0.1"
 
 networks:
   internal:
     driver: bridge
+    config:
+    - subnet: 172.20.0.0/16
+      gateway: 172.20.0.1
