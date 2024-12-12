@@ -7,7 +7,7 @@ services:
     volumes:
       - ./html:/usr/local/apache2/htdocs
       - ./configs/apache-https.conf:/usr/local/apache2/conf/httpd.conf
-      - /etc/certs:/usr/local/apache2/conf/certs
+      - /etc/docker-certs:/usr/local/apache2/conf/certs
       - ./service-logs:/usr/local/apache2/logs
     restart: unless-stopped
 
